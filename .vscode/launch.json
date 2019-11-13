@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - LoanApiApplication",
+            "request": "launch",
+            "mainClass": "com.timothyisaiah.loanapi.LoanApiApplication",
+            "projectName": "loan-api"
+        }
+    ]
+}

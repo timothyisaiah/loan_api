@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="loan-api/.mvn/wrapper"/>
+	<classpathentry kind="src" path="loan-api/src/main/java"/>
+	<classpathentry kind="src" path="loan-api/src/test/java"/>
+	<classpathentry exported="true" kind="lib" path="loan-api/target/loan-api-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="output" path="loan-api/target/classes"/>
+</classpath>
