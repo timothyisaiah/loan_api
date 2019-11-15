@@ -16,7 +16,7 @@ public class securityConfigurations extends WebSecurityConfigurerAdapter {
 		auth.inMemoryAuthentication()
 						.withUser("username")
 						.password("password")
-						.roles("roles")
+						.roles("moneyLender")
 						.and()
 						.withUser("ADMIN")
 						.password("admin123")
@@ -34,7 +34,9 @@ public class securityConfigurations extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 					.antMatchers("/","/home").permitAll()
 					.antMatchers("/**").hasRole("ADMIN")
-					.antMatchers("/user").hasAnyRole("USER","ADMIN")
+					.antMatchers("/user").hasAnyRole("moneyLender","ADMIN")
 					.and().formLogin();
 	}
+	
+
 }
