@@ -21,12 +21,12 @@ public class EmployeeController {
 	
 	
     @GetMapping("/saveEmployee")
-    public String saveEmployee(@RequestParam String firstname,@RequestParam String lastname,@RequestParam String username,@RequestParam String password,@RequestParam String role) {
+    public Employee saveEmployee(@RequestParam String firstname,@RequestParam String lastname,@RequestParam String username,@RequestParam String password,@RequestParam String role) {
         
         Employee employee = new Employee(firstname,lastname,username,password,role);
         
-        employeeService.saveEmployee(employee);
-        return "Employee <h2>" +username+ "</h2> saved successfully";
+        return employeeService.saveEmployee(employee);
+//         "Employee <h2>" +username+ "</h2> saved successfully";
     }
     
     @GetMapping("/deleteEmployee")
