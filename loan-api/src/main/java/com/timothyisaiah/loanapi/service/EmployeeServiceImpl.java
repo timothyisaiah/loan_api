@@ -8,12 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.timothyisaiah.loanapi.models.Employee;
-import com.timothyisaiah.loanapi.models.Loans;
 import com.timothyisaiah.loanapi.repository.EmployeeRepository;
+
+import lombok.RequiredArgsConstructor;
 
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService{
 
 		@Autowired

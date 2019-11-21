@@ -59,6 +59,17 @@ public class Loans {
 		this.installment = installment;
 		this.period = period;
 	}
+	
+	public Loans(int loanid, String principal, String interest, String interestrate, String installment,
+			String period) {
+		super();
+		this.loanid = loanid;
+		this.principal = principal;
+		this.interest = interest;
+		this.interestrate = interestrate;
+		this.installment = installment;
+		this.period = period;
+	}
 	@Override
 	public String toString() {
 		return "Loans [loanid=" + loanid + ", principal=" + principal + ", interest=" + interest + ", interestrate="

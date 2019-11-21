@@ -34,7 +34,7 @@ public class LoanService {
 		loanRepository.save(loan);
 	}
 	public void fetchLoan(Integer loanid) {
-		loanRepository.findById(loanid);
+		loanRepository.findById(loanid).get();
 	}
 	public List<Loans> fetchAllLoans() {
 		List<Loans> allLoans = (List<Loans>) loanRepository.findAll();
