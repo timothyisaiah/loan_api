@@ -1,24 +1,63 @@
 package com.timothyisaiah.loanapi.controllers;
 
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.timothyisaiah.loanapi.models.Loans;
+import com.timothyisaiah.loanapi.models.Searchloans;
+import com.timothyisaiah.loanapi.service.LoanService;
+import com.timothyisaiah.loanapi.service.SearchLoanService;
+
+@CrossOrigin(origins={ "http://localhost:3000"})
 @RestController
+//@RequestMapping("/api")
 public class loanController {
-    
-    @RequestMapping("/home")
-    public String home() {
-        return "This is the home page";
+//     DateFormat formatter = 
+	@Autowired
+	private LoanService loanService;
+	
+	@Autowired
+	private SearchLoanService searchloanservice;
+	
+	
+    @RequestMapping("/fetchAllLoans")
+    public List<Loans> home() {
+        return loanService.fetchAllLoans();
     }
 
-    @RequestMapping("/")
-    public String root() {
-        return "This is the Index page";
+    @GetMapping("/fetchAllLoanDetails")
+    public List<Searchloans> root() {
+        return searchloanservice.fetchAllLoanDetails();
     }
 
-    @RequestMapping("/user")
-    public String user() {
-        return "this is the user profile";
+    @PostMapping("/saveLoan")
+    public Loans saveLoan(HttpServletRequest request) {
+        
+    	Double principal = Double.valueOf(request.getParameter("principle"));
+    	Double installment =Double.valueOf( request.getParameter("installments"));
+    	int period = Integer.valueOf(request.getParameter("period"));
+    	Double interest = Double.valueOf(request.getParameter("interest"));
+//    	String total = request.getParameter("total");
+    	Date returndate = new Date();
+    	Double interestrate = Double.valueOf(request.getParameter("rate"));
+    	Integer clientid = Integer.valueOf(request.getParameter("clientid"));
+
+    	
+        Loans loan = new Loans(principal,interest,interestrate,installment,period,clientid,returndate);
+        
+        loanService.saveLoan(loan);
+       return loan;
+//         "Employee <h2>" +username+ "</h2> saved successfully";
     }
 
     @RequestMapping("/admin")

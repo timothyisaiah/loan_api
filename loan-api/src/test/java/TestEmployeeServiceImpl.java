@@ -14,7 +14,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import com.timothyisaiah.loanapi.models.Employee;
-import com.timothyisaiah.loanapi.models.Loans;
 import com.timothyisaiah.loanapi.repository.EmployeeRepository;
 import com.timothyisaiah.loanapi.service.EmployeeServiceImpl;
 
@@ -51,13 +50,13 @@ public class TestEmployeeServiceImpl {
 	}
 	
 	@Test
-	public void fetchLoanTest(){
+	public void fetchEmployeeTest(){
 
 		 when(employeeRepository.findById(1)).thenReturn(Optional.of(new Employee(1,"null","null","null","null","null")));
 	}
 	
 	@Test
-	public void saveLoanTest(){
+	public void saveEmployeeTest(){
 		Employee employee = new Employee(1,"null","null","null","null","null");
 
 		employeeServiceImpl.saveEmployee(employee);

@@ -1,5 +1,7 @@
 package com.timothyisaiah.loanapi.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,4 +22,11 @@ public class GenericServiceImpl implements GenericService {
     public void saveClient(Client client){
         genericRepository.save(client);
     }
+    public List<Client> fetchAllClients() {
+    	return (List<Client>) genericRepository.findAll();
+    }
+    public Client fetchClientById(int clientid) {
+    	return genericRepository.findById(clientid).get();
+    }
+
 }

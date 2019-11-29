@@ -36,9 +36,9 @@ public class TestLoanService {
 	@Test
 	public void fetchAllLoansTest() {
 		List<Loans> list = new ArrayList<Loans>();
-		Loans loan1 = new Loans("null", "null", "null", "null", "null");
-		Loans loan2 = new Loans("null", "null", "null", "null", "null");
-		Loans loan3 = new Loans("null", "null", "null", "null", "null");
+		Loans loan1 = new Loans(0, null, null, null, null, 0, 0, null);
+		Loans loan2 = new Loans(0, null, null, null, null, 0, 0, null);
+		Loans loan3 = new Loans(0, null, null, null, null, 0, 0, null);
 		
 		list.add(loan3);
 		list.add(loan2);
@@ -54,12 +54,12 @@ public class TestLoanService {
 	@Test
 	public void fetchLoanTest(){
 
-		 when(loanRepository.findById(1)).thenReturn(Optional.of(new Loans(1,"null","null","null","null","null")));
+		 when(loanRepository.findById(1)).thenReturn(Optional.of(new Loans(1,null,null,null,null,0, 0, null)));
 	}
 	
 	@Test
 	public void saveLoanTest(){
-		Loans loan = new Loans(1,"null","null","null","null","null");
+		Loans loan = new Loans(1, null, null, null, null, 0, 0, null);;
 
 		loanService.saveLoan(loan);
 		verify(loanRepository,times(1)).save(loan);

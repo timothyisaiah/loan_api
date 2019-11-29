@@ -124,6 +124,20 @@ public class Client {
 		this.telephone = telephone;
 	}
 
+
+
+	public Client(int clientid, String firstname, String lastname, String security, String occupation, String address,
+			String telephone) {
+		super();
+		this.clientid = clientid;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.security = security;
+		this.occupation = occupation;
+		this.address = address;
+		this.telephone = telephone;
+	}
+
     
     
    
